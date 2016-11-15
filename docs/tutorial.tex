@@ -1,0 +1,119 @@
+\documentclass{article}
+
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage{natbib} % Required to change bibliography style to APA
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[margin=1in]{geometry}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage{capt-of}
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=bash,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\title{Tutorial - GIT}
+
+\author{Grupo de Linux da Universidade de Aveiro}
+
+\date{2016}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Welcome to this tutorial. This is a brief introduction to version control software and GIT. This tutorial is separated in three parts:
+
+\begin{itemize}
+\item{Introduction}
+\item{First steps}
+\item{Advanced commands}
+\end{itemize}
+
+\textbf{Introduction} - we will talk about Version Control Systems and GIT.\\
+\textbf{First steps} - we will talk about GIT's basic commands.\\
+\textbf{Advanced commands} - we will talk about GIT's advanced commands.\\
+
+\subsection{What is a version control system?}
+
+A version control system (\textbf{VCS}) is a software that allows you to manage the changes in files, while retaining previous changes. It will also allow you to work with others more effectively, since it will track the changes for you.
+
+\subsection{Why use version control system?}
+
+Instead of using other kinds of systems, you can use \textbf{VCS} to track the changes in code and in file structure of your project. Just this aspect will allow you to focus in code production instead of always worrying if you have the right files or what others have changed in the files.
+
+\subsection{What is GIT?}
+
+\textbf{GIT} is one of the main \textbf{VCS} used for software development. \textbf{GIT} main goals are:
+
+\begin{itemize}
+\item{Speed}
+\item{Data integrity}
+\item{Distributed}
+\item{Non-linear workflow}
+\end{itemize}
+
+\section{First steps}
+
+\subsection{Create a local repository}
+
+\subsection{Synchronize with a remote server}
+
+\subsection{Adding your first files}
+
+\subsection{Your first commit}
+
+\subsection{Checking the log}
+
+\subsection{Updating the remote server}
+
+\subsection{Creating a branch}
+
+\subsection{Merge vs Rebase}
+
+\subsubsection{Merge}
+
+\subsubsection{Rebase}
+
+\subsubsection{Difference between them}
+
+\subsection{Reset}
+
+\section{Advanced tricks}
+
+\subsection{Cherry-pick}
+
+\subsection{RefLog}
+
+\subsection{Bisect}
+
+\subsection{}
+
+\end{document}
