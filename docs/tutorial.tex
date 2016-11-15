@@ -21,7 +21,6 @@
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
 \lstset{frame=tb,
-  language=bash,
   aboveskip=3mm,
   belowskip=3mm,
   showstringspaces=false,
@@ -97,17 +96,71 @@ First of all, lets create a new repository so you that you can start tracking al
 	git commit -m "Initial commit"
 \end{lstlisting}
 
-Lets dissecate each command. \textbf{git init} this command will initialize a local git repository in the folder you're in. \textbf{touch README.md} will create an empty file called README.md. \textbf{git add README.md} will make your local GIT repository start tracking your file.
+Lets dissecate each command:\\
+
+\begin{itemize}
+\item{\textbf{git init} - this command will initialize a local git repository in the folder you're in.}
+\item{\textbf{touch README.md} - will create an empty file called README.md.}
+\item{\textbf{git add README.md} - will make your local GIT repository start tracking your file.}
+\item{\textbf{git commit -m "Initial commit"} - will set the actual state of the repository as the first snapshot taken.}
+\end{itemize}
 
 \subsection{Synchronize with a remote server}
 
 % TODO
 
-\subsection{Adding your first files}
+\subsection{Adding files}
 
-Lets create a few other files so we can start tracking them to
+Lets create a few other files so we can start tracking them with GIT.
 
-\subsection{Your first commit}
+\begin{lstlisting}
+	touch file_1
+	touch file_2
+	mkdir folder_1
+	touch folder_1/file_1
+	touch folder_1/file_2
+\end{lstlisting}
+
+Lets check what is the state of the local GIT repository with \textbf{git status}.
+
+\begin{lstlisting}
+	On branch master
+	Untracked files:
+		(use "git add <file>..." to include in what will be committed)
+
+	file_1
+	file_2
+	folder_1/
+
+	nothing added to commit but untracked files present (use "git add" to track)
+\end{lstlisting}
+
+There are two ways of start tracking these files. You can add all files with one command or you can add them one by one. If you know that you want to add them all, you can use this command:
+
+\begin{lstlisting}
+	git add .
+\end{lstlisting}
+
+If you don't want to track all files, you can add them individually like this:
+
+\begin{lstlisting}
+	git add <file>
+\end{lstlisting}
+
+In this case, we want to add all files, so we will use \textbf{git add .} and know lets check the state of the local repository with \textbf{git status}.
+
+\begin{lstlisting}
+	On branch master
+	Changes to be committed:
+  		(use "git reset HEAD <file>..." to unstage)
+
+	new file:   file_1
+	new file:   file_2
+	new file:   folder_1/file_1
+	new file:   folder_1/file_2
+\end{lstlisting}
+
+\subsection{Making commits}
 
 \subsection{Checking the log}
 
