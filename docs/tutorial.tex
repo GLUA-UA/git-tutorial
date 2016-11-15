@@ -239,8 +239,8 @@ Now we can develop our feature in this branch, without changing the master branc
 Lets add a new file called feat\_1 and lets add and commit our new feature to the repository. Lets do this by running the following commands:
 
 \begin{lstlisting}
-	touch feat_1
-	git add feat_1
+	echo "feature 1 developed" >> file_1
+	git add file_1
 	git commit -m "Feature 1 complete"
 	git log
 \end{lstlisting}
@@ -294,7 +294,86 @@ As we can see in the last output, the master branch didn't get changed, while th
 
 \subsection{Merge vs Rebase}
 
+Run this code in your terminal so that the repository matches the next exercise:
+
+\begin{lstlisting}
+	git checkout master
+	git branch bug_fix_1
+	git checkout bug_fix_1
+	echo "this is a bug fix" >> file_1
+	git commit -a -m "Bug Fix 1 solved"
+	git checkout master
+\end{lstlisting}
+
+Now we want to do a lot of things with our repository. We have two things happening, we developed our feature 1 and one of our colleagues developed a bug fix for a bug found in the master branch. Our colleague did his bug fix on the branch bug\_fix\_1.\\
+
+There are two kinds of operations: 
+
+\begin{itemize}
+	\item{\textbf{Merge} - this operation will join two commits from different branches in a new commit in the branch you are}
+	\item{\textbf{Rebase} - this operation will take the commits in one branch and apply them before the commits of the branch you are in}
+\end{itemize}
+
 \subsubsection{Merge}
+
+So now we want to merge the bug fix into the master branch because we want our master branch to have the less amount of bugs possible. To do this, first we must check if we are in the master branch and then merge the bug\_fix\_1 branch into the master branch. To check if we are in the correct branch we need to run \textbf{git branch} and the output is:
+
+\begin{lstlisting}
+	  bug_fix_1
+	  feature-1
+	* master
+\end{lstlisting}
+
+If this isn't your case you need to run \textbf{git checkout master}.\\
+
+After doing all this, the last thing that we need to do to merge both branches is:
+
+\begin{lstlisting}
+	git merge bug_fix_1
+\end{lstlisting}
+
+Since we merged the two branches, both of them should be equal. To check that all the commits have made into master branch lets check the log, by running \textbf{git log}:
+
+\begin{lstlisting}
+	commit 3b820eeb454915a81373a569a8a4baf32a6725b1
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 21:31:43 2016 +0000
+
+    	Bug fix 1 solved
+
+	commit 3070d3621b60b5ebe46b2d58ad6be2537069d79d
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:44:20 2016 +0000
+
+    	Added initial files
+
+	commit 5814279838033e7b0f14a620c73202f52f11cf99
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:26:39 2016 +0000
+
+    	Initial commit
+\end{lstlisting}
+
+And lets check if the last commit is the same in both branches, by running \textbf{git branch -v}:
+
+\begin{lstlisting}
+	  bug_fix_1 3b820ee Bug fix 1 solved
+	  feature-1 4375663 Feature 1 complete
+	* master    3b820ee Bug fix 1 solved
+\end{lstlisting}
+
+Now that the bug\_fix\_1 branch has been merged into the master branch, we don't need that branch anymore, so lets delete it. To do this run:
+
+\begin{lstlisting}
+	git branch -d bug_fix_1
+\end{lstlisting}
+
+And now lets check that we did in fact deleted the bug\_fix\_1 branch and that we didn't lose any information by running again \textbf{git branch -v}:
+
+\begin{lstlisting}
+	  feature-1 4375663 Feature 1 complete
+	* master    3b820ee Bug fix 1 solved
+\end{lstlisting}
 
 \subsubsection{Rebase}
 
