@@ -80,13 +80,32 @@ Instead of using other kinds of systems, you can use \textbf{VCS} to track the c
 \item{Non-linear workflow}
 \end{itemize}
 
+\clearpage
+
 \section{First steps}
+
+This is the beginning of a great journey for you. You will learn the basics of GIT, which will help until the end of your days as developer.
 
 \subsection{Create a local repository}
 
+First of all, lets create a new repository so you that you can start tracking all the changes in your project.
+
+\begin{lstlisting}
+	git init
+	touch README.md
+	git add README.md
+	git commit -m "Initial commit"
+\end{lstlisting}
+
+Lets dissecate each command. \textbf{git init} this command will initialize a local git repository in the folder you're in. \textbf{touch README.md} will create an empty file called README.md. \textbf{git add README.md} will make your local GIT repository start tracking your file.
+
 \subsection{Synchronize with a remote server}
 
+% TODO
+
 \subsection{Adding your first files}
+
+Lets create a few other files so we can start tracking them to
 
 \subsection{Your first commit}
 
