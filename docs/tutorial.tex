@@ -162,7 +162,40 @@ In this case, we want to add all files, so we will use \textbf{git add .} and kn
 
 \subsection{Making commits}
 
+Now that we have added some new files and started tracking them in our repository, lets save this state. To save this changes in the repository, we need to make a commit of the changes. To commit the changes, we will use the following command:
+
+\begin{lstlisting}
+	git commit -m "A message relevant to the changes made in this commit"
+\end{lstlisting}
+
+Know that we know which command to use, lets use it but don't forget to add a meaningful message, so that when others check the commits to the repository can understand what or why you did those changes.\\
+
 \subsection{Checking the log}
+
+Lets check the log to see the changes we have made to our local repository. To check these changes, we will check the local repository log and to do that we must run the following command:
+
+\begin{lstlisting}
+	git log
+\end{lstlisting}
+
+After running this command, we will get an output similar to this:
+
+\begin{lstlisting}
+	commit 3070d3621b60b5ebe46b2d58ad6be2537069d79d
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:44:20 2016 +0000
+
+    	Added initial files
+
+	commit 5814279838033e7b0f14a620c73202f52f11cf99
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:26:39 2016 +0000
+
+    	Initial commit
+\end{lstlisting}
+
+What can we check in the log? Well, we can see the commits that were made to the repository, when were they made and the message that the author of the commit wrote for that change.\\
+
 
 \subsection{Updating the remote server}
 
