@@ -202,7 +202,95 @@ Where the \textbf{\textless commit hash\textgreater} is the number that appears 
 
 \subsection{Updating the remote server}
 
+% TODO: Updating the remote server
+% Code.UA vs GitHub
+
 \subsection{Creating a branch}
+
+GIT supports branches. What are branches? Branches are places where code diverges, meaning that the code will have the same base, but it will differ from branch to branch. Every GIT repository has main branch, that is called master and if you don't branch all your commits will go there.\\
+
+Now lets say you need to add a new feature. You don't want to break the master branch while you develop your new feature, so you will create a new branch so that you can work on code. To create the new branch, you will use the following command:
+
+\begin{lstlisting}
+	git branch <branch name>
+\end{lstlisting}
+
+Lets create a new branch for our new feature called \textbf{feature-1}. After creating your new branch to work on you should check in which branch are you in, by running the following command \textbf{git branch}. And you will get the following result:
+
+\begin{lstlisting}
+	  feature-1
+	* master
+\end{lstlisting}
+
+The star (*) before the name of the branch will tell you which in which branch you are and right now you should be in the master branch. But we want to develop our new feature, so we will need to change to the feature-1 branch. To do that we need to run the following command:
+
+\begin{lstlisting}
+	git checkout <branch name>
+\end{lstlisting}
+
+After we run this command you should check in which branch are you now and the result should be feature-1 as demonstrated in the following:
+
+\begin{lstlisting}
+	* feature-1
+	  master
+\end{lstlisting}
+
+Now we can develop our feature in this branch, without changing the master branch.\\
+Lets add a new file called feat\_1 and lets add and commit our new feature to the repository. Lets do this by running the following commands:
+
+\begin{lstlisting}
+	touch feat_1
+	git add feat_1
+	git commit -m "Feature 1 complete"
+	git log
+\end{lstlisting}
+
+And the output should be similar to this:
+
+\begin{lstlisting}
+	commit 43756632d9dedf6b8756e1dd393d877ee7c81a4d
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 16:55:18 2016 +0000
+
+    	Feature 1 complete
+
+	commit 3070d3621b60b5ebe46b2d58ad6be2537069d79d
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:44:20 2016 +0000
+
+    	Added initial files
+
+	commit 5814279838033e7b0f14a620c73202f52f11cf99
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:26:39 2016 +0000
+
+    	Initial commit
+\end{lstlisting}
+
+So now our code in feature-1 branch as a new feature that the master branch doesn't have. Lets just check our master branch to check that the change that we made didn't made it to the master branch, by running the following commands:
+
+\begin{lstlisting}
+	git checkout master
+	git log
+\end{lstlisting}
+
+The result should be similar to this:
+
+\begin{lstlisting}
+	commit 3070d3621b60b5ebe46b2d58ad6be2537069d79d
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:44:20 2016 +0000
+
+    	Added initial files
+
+	commit 5814279838033e7b0f14a620c73202f52f11cf99
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:26:39 2016 +0000
+
+    	Initial commit
+\end{lstlisting}
+
+As we can see in the last output, the master branch didn't get changed, while the changes we did are saved in the feature-1 branch.\\
 
 \subsection{Merge vs Rebase}
 
