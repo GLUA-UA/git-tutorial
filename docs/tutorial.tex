@@ -105,10 +105,6 @@ Lets dissecate each command:\\
 \item{\textbf{git commit -m "Initial commit"} - will set the actual state of the repository as the first snapshot taken.}
 \end{itemize}
 
-\subsection{Synchronize with a remote server}
-
-% TODO
-
 \subsection{Adding files}
 
 Lets create a few other files so we can start tracking them with GIT.
@@ -196,6 +192,13 @@ After running this command, we will get an output similar to this:
 
 What can we check in the log? Well, we can see the commits that were made to the repository, when were they made and the message that the author of the commit wrote for that change.\\
 
+Now lets say you want to check what a specific commit made. You can verify this with this command:
+
+\begin{lstlisting}
+	git show <commit hash>
+\end{lstlisting}
+
+Where the \textbf{\textless commit hash\textgreater} is the number that appears after the commit word when using the \textbf{git log}.\\
 
 \subsection{Updating the remote server}
 
