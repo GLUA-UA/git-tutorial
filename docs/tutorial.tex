@@ -454,6 +454,36 @@ Now lets check the history of this branch by running \textbf{git log}.
 
 \subsection{Reset}
 
+Lets say that we did an error when we fixed the rebase error, how can we undo it? Simple we can use \textbf{git reset HEAD~N}, where \textbf{N} represents the number of commits that we want to reset to. Since we only want to undo the last commit we will use N = 1.
+
+\begin{lstlisting}
+	git reset HEAD~1
+\end{lstlisting}
+
+To check that the \textbf{git reset} was successful, lets run \textbf{git log}.
+
+\begin{lstlisting}
+	commit 76a5e9efc2c59ff487fae6636c9eeb80720ab541
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 23:49:28 2016 +0000
+
+    	Feature 1 complete
+
+	commit 3070d3621b60b5ebe46b2d58ad6be2537069d79d
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:44:20 2016 +0000
+
+    	Added initial files
+
+	commit 5814279838033e7b0f14a620c73202f52f11cf99
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:26:39 2016 +0000
+
+    	Initial commit
+\end{lstlisting}
+
+We can now check that the rebase never happened.
+
 \section{Advanced tricks}
 
 \subsection{Cherry-pick}
