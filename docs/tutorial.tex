@@ -13,12 +13,18 @@
 \usepackage{hyperref}
 \usepackage{wrapfig}
 \usepackage{capt-of}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{float}
 
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\graphicspath{ {images/} }
 
 \lstset{frame=tb,
   aboveskip=3mm,
@@ -79,7 +85,14 @@ Instead of using other kinds of systems, you can use \textbf{VCS} to track the c
 \item{Non-linear workflow}
 \end{itemize}
 
-\clearpage
+GIT allows you to track your files and the changes made to them. GIT structures the tracking of files in a tree way, where each node of the tree will represent a different state of the repository. Each node of the GIT tree is called a commit and it is a snapshot of the files that where being tracked at the time of that commit. This tree structure allows you and your colleagues to see the different stages of the tree, in other words it represents the history of the project and the code.\\
+The tree structure also allows for concurrent development, because each branch of the tree is independent and later the branches can be merged.
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.5]{repository_after_rebase.png}}
+\caption{GIT tree structure}
+\label{fig1}
+\end{figure}
 
 \section{First steps}
 
@@ -96,7 +109,7 @@ First of all, lets create a new repository so you that you can start tracking al
 	git commit -m "Initial commit"
 \end{lstlisting}
 
-Lets dissecate each command:\\
+Lets dissect each command:\\
 
 \begin{itemize}
 \item{\textbf{git init} - this command will initialize a local git repository in the folder you're in.}
@@ -104,6 +117,12 @@ Lets dissecate each command:\\
 \item{\textbf{git add README.md} - will make your local GIT repository start tracking your file.}
 \item{\textbf{git commit -m "Initial commit"} - will set the actual state of the repository as the first snapshot taken.}
 \end{itemize}
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.5]{initial_repository.png}}
+\caption{Initial repository state}
+\label{fig1}
+\end{figure}
 
 \subsection{Adding files}
 
@@ -310,6 +329,12 @@ Lets create a new branch for our new feature called \textbf{feature-1}. After cr
 	* master
 \end{lstlisting}
 
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.5]{repository_after_branch.png}}
+\caption{Repository after creating branch feature-1}
+\label{fig1}
+\end{figure}
+
 The star (*) before the name of the branch will tell you which in which branch you are and right now you should be in the master branch. But we want to develop our new feature, so we will need to change to the feature-1 branch. To do that we need to run the following command:
 
 \begin{lstlisting}
@@ -395,6 +420,12 @@ Run this code in your terminal so that the repository matches the next exercise:
 
 Now we want to do a lot of things with our repository. We have two things happening, we developed our feature 1 and one of our colleagues developed a bug fix for a bug found in the master branch. Our colleague did his bug fix on the branch bug\_fix\_1.\\
 
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.5]{repository_with_3_branches.png}}
+\caption{State of the repository after another branch has been created}
+\label{fig1}
+\end{figure}
+
 There are two kinds of operations: 
 
 \begin{itemize}
@@ -442,6 +473,12 @@ Since we merged the two branches, both of them should be equal. To check that al
     	Initial commit
 \end{lstlisting}
 
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.5]{repository_after_merge.png}}
+\caption{Repository state after the merge}
+\label{fig1}
+\end{figure}
+
 And lets check if the last commit is the same in both branches, by running \textbf{git branch -v}:
 
 \begin{lstlisting}
@@ -462,6 +499,12 @@ And now lets check that we did in fact deleted the bug\_fix\_1 branch and that w
 	  feature-1 4375663 Feature 1 complete
 	* master    3b820ee Bug fix 1 solved
 \end{lstlisting}
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.5]{repository_after_deleting_branch.png}}
+\caption{Repository state after deleting branch}
+\label{fig1}
+\end{figure}
 
 \subsubsection{Rebase}
 
@@ -539,6 +582,12 @@ Now lets check the history of this branch by running \textbf{git log}.
 
     	Initial commit
 \end{lstlisting}
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.5]{repository_after_rebase.png}}
+\caption{Repository state after rebase}
+\label{fig1}
+\end{figure}
 
 \subsection{Reset}
 
