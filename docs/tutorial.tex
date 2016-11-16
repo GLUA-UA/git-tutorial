@@ -377,7 +377,80 @@ And now lets check that we did in fact deleted the bug\_fix\_1 branch and that w
 
 \subsubsection{Rebase}
 
-\subsubsection{Difference between them}
+Now we want to update our feature-1 branch with the latest code from the master branch, to check if the bug fix that we merged into the master branch won't insert any bugs when merged with our new feature. To do this we must change to our feature-1 branch and then rebase it with the commits from the master branch.
+
+\begin{lstlisting}
+	git checkout feature-1
+	git rebase master
+\end{lstlisting}
+
+And the output should be something like this:
+
+\begin{lstlisting}
+	Auto-merging file_1
+	CONFLICT (content): Merge conflict in file_1
+	Recorded preimage for 'file_1'
+	Automatic merge failed; fix conflicts and then commit the result.
+\end{lstlisting}
+
+Since we changed the same file in both branches, we need to fix this. Open the file with vim, using the following command \textbf{vim file\_1}. The file should be similar to this:
+
+\begin{lstlisting}
+	<<<<<<< HEAD
+	feature 1 developed
+	=======
+	this is a bug fix
+	>>>>>>> master
+\end{lstlisting}
+
+Now we must decide what to keep, so lets fix the file, by keeping what we want to keep and removing what is not needed, including \textbf{\textless\textless\textless\textless\textless\textless\textless\textless HEAD} and \textbf{\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater master}. By the end of this conflict resolution, we should have a file equal to this:
+
+\begin{lstlisting}
+	this is a bug fix
+	feature 1 developed
+\end{lstlisting}
+
+Now lets add the file and commit the rebase fix:
+
+\begin{lstlisting}
+	git add file_1
+	git commit -m "Fixing rebase errors"
+\end{lstlisting}
+
+Now lets check the history of this branch by running \textbf{git log}.
+
+\begin{lstlisting}
+	commit c7cbf0e80fb8564f5cfa5a9f7d20f2002fb7847b
+	Merge: 76a5e9e 3b820ee
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 23:59:40 2016 +0000
+
+    	Fixing rebase errors
+
+	commit 76a5e9efc2c59ff487fae6636c9eeb80720ab541
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 23:49:28 2016 +0000
+
+    	Feature 1 complete
+
+	commit 3b820eeb454915a81373a569a8a4baf32a6725b1
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 21:31:43 2016 +0000
+
+    	Bug fix 1 solved
+
+	commit 3070d3621b60b5ebe46b2d58ad6be2537069d79d
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:44:20 2016 +0000
+
+    	Added initial files
+
+	commit 5814279838033e7b0f14a620c73202f52f11cf99
+	Author: John Doe <john.doe@example.com>
+	Date:   Tue Nov 15 15:26:39 2016 +0000
+
+    	Initial commit
+\end{lstlisting}
 
 \subsection{Reset}
 
