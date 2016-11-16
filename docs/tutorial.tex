@@ -202,8 +202,96 @@ Where the \textbf{\textless commit hash\textgreater} is the number that appears 
 
 \subsection{Updating the remote server}
 
+When we are using Git in our computers, the commands we learnt (git init, git add, git commit) have a direct effect on our local repository. But Git was created for teams, so we need a central point for sharing and store code. We call it the remote.\\
+
+After issuing the previous commands, if you want to make those modifications and code available, you must use the commmand \textbf{git push}.
+
+\begin{lstlisting}
+git push
+\end{lstlisting}
+
+But something went wrong, as...
+
+\begin{lstlisting}
+fatal: No configured push destination.
+Either specify the URL from the command-line or configure a remote repository using
+
+    git remote add <name> <url>
+
+and then push using the remote name
+
+    git push <name>
+
+\end{lstlisting}
+
+This is not bad and the message is clear: before publishing something from our local repository to a remote, we must set a remote! To do that we must have access to a Git repository service like \href{https://github.com}{GitHub}, \href{https://bitbucket.org}{BitBucket} or \href{http://code.ua.pt}{Code.UA}. \\
+
+Bellow, we show how to create a remote Git repository, with two use-cases: \textbf{GitHub} and \textbf{Code.UA}. The command \textbf{git push} should work normally after you complete this step.
+
 % TODO: Updating the remote server
 % Code.UA vs GitHub
+
+\subsubsection{Using Code.UA}
+
+For University of Aveiro course's projects, it's recommend to use Code.UA rather than third-party services like GitHub or Bitbucket.\\
+
+To create a repository in Code.UA:
+
+\begin{enumerate}
+\item Login with your universal account in\underline{} \textbf{code.ua.pt}
+\item In the top left corner, click in \textbf{Projects}
+\item Click in \textbf{New project}
+\item Fill in the required information (choose a good name)
+\item Tick, in the \textbf{modules} section, the checkbox \textbf{Repository}
+\item Choose, in the \textbf{SCM} list, the item \textbf{Git}
+\item Confirm the repository creation by clicking in \textbf{Create}
+\end{enumerate}
+
+Now that we created a new repository in Code.UA, we need to find repository URL, so we can publish the modifications made in our local repository in the\underline{} remote one.\\
+
+To do that:
+
+\begin{enumerate}
+\item In the top right corner, choose the project you newly created
+\item Click in the tab \textbf{Repository}
+\item Copy the url (starts with \textbf{https://(...)\underline{}})
+\end{enumerate}
+
+Then, execute in the path of your local repository:
+
+\begin{lstlisting}
+git remote add origin https://(...)
+git push --set-upstream origin master
+\end{lstlisting}
+
+And it's done!
+
+\subsubsection{Using GitHub}
+
+GitHub is the most popular Git repository hosting service. You can and should use it to publish your projects, since GitHub is almost known as the "Programmer's portfolio".
+
+To use GitHub:
+
+\begin{enumerate}
+\item Create an account on GitHub (on \url{https://github.com/join?return_to=https%3A%2F%2Fgithub.com%2Faccount&source=login})
+\item After registering and login in, push the \textbf{New repository} button
+\item Choose a good name for the repository
+\item Make the project as \textbf{public} or \textbf{private}
+\item Push the \textbf{Create respository} button
+\end{enumerate}
+
+After creating a new repo, GitHub provides a set of instructions for creating a new repository on the command line, push an existing repository and more.\\
+
+The repository URL it's available under the section \textbf{Quick Setup}.\\
+
+Then, execute in the path of your local repository:
+
+\begin{lstlisting}
+git remote add origin https://(...)
+git push --set-upstream origin master
+\end{lstlisting}
+
+And it's done!
 
 \subsection{Creating a branch}
 
