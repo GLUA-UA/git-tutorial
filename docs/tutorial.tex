@@ -72,11 +72,11 @@ A version control system (\textbf{VCS}) is a software that allows you to manage 
 
 \subsection{Why use version control system?}
 
-Instead of using other kinds of systems, you can use \textbf{VCS} to track the changes in code and in file structure of your project. Just this aspect will allow you to focus in code production instead of always worrying if you have the right files or what others have changed in the files.
+Instead of using other kinds of systems, you can use \textbf{VCS} to track the changes in code and in file structure of your project. Just this aspect will allow you to focus in code production, instead of always worrying if you have the right files or what others have changed in the files.
 
 \subsection{What is GIT?}
 
-\textbf{GIT} is one of the main \textbf{VCS} used for software development. \textbf{GIT} main goals are:
+\textbf{GIT} is one of the main \textbf{VCS} used for software development. \textbf{GIT} main features are:
 
 \begin{itemize}
 \item{Speed}
@@ -86,7 +86,7 @@ Instead of using other kinds of systems, you can use \textbf{VCS} to track the c
 \end{itemize}
 
 GIT allows you to track your files and the changes made to them. GIT structures the tracking of files in a tree way, where each node of the tree will represent a different state of the repository. Each node of the GIT tree is called a commit and it is a snapshot of the files that where being tracked at the time of that commit. This tree structure allows you and your colleagues to see the different stages of the tree, in other words it represents the history of the project and the code.\\
-The tree structure also allows for concurrent development, because each branch of the tree is independent and later the branches can be merged.
+The tree structure also allows for concurrent development, because each branch of the tree is independent and later on the branches can be merged.
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.5]{repository_after_rebase.png}}
@@ -96,11 +96,11 @@ The tree structure also allows for concurrent development, because each branch o
 
 \section{First steps}
 
-This is the beginning of a great journey for you. You will learn the basics of GIT, which will help until the end of your days as developer.
+This is the beginning of a great journey for you. You will learn the basics of GIT, which in turn will help you until the end of your days as developer.
 
 \subsection{Create a local repository}
 
-First of all, lets create a new repository so you that you can start tracking all the changes in your project.
+First of all, let's create a new repository, so you that you can start tracking all the changes in your project.
 
 \begin{lstlisting}
 	git init
@@ -109,7 +109,7 @@ First of all, lets create a new repository so you that you can start tracking al
 	git commit -m "Initial commit"
 \end{lstlisting}
 
-Lets dissect each command:\\
+Let's dissect each command:\\
 
 \begin{itemize}
 \item{\textbf{git init} - this command will initialize a local git repository in the folder you're in.}
@@ -126,7 +126,7 @@ Lets dissect each command:\\
 
 \subsection{Adding files}
 
-Lets create a few other files so we can start tracking them with GIT.
+Let's create a few other files, so we can start tracking them with GIT.
 
 \begin{lstlisting}
 	touch file_1
@@ -136,7 +136,7 @@ Lets create a few other files so we can start tracking them with GIT.
 	touch folder_1/file_2
 \end{lstlisting}
 
-Lets check what is the state of the local GIT repository with \textbf{git status}.
+Let's check what is the state of the local GIT repository, with \textbf{git status}.
 
 \begin{lstlisting}
 	On branch master
@@ -162,7 +162,7 @@ If you don't want to track all files, you can add them individually like this:
 	git add <file>
 \end{lstlisting}
 
-In this case, we want to add all files, so we will use \textbf{git add .} and know lets check the state of the local repository with \textbf{git status}.
+In this case, we want to add all files, so we will use \textbf{git add .} and know let's check the state of the local repository with \textbf{git status}.
 
 \begin{lstlisting}
 	On branch master
@@ -177,17 +177,17 @@ In this case, we want to add all files, so we will use \textbf{git add .} and kn
 
 \subsection{Making commits}
 
-Now that we have added some new files and started tracking them in our repository, lets save this state. To save this changes in the repository, we need to make a commit of the changes. To commit the changes, we will use the following command:
+Now that we have added some new files and started tracking them in our repository, let's save this state. To save this changes in the repository, we need to make a commit of the changes. To commit the changes, we will use the following command:
 
 \begin{lstlisting}
 	git commit -m "A message relevant to the changes made in this commit"
 \end{lstlisting}
 
-Know that we know which command to use, lets use it but don't forget to add a meaningful message, so that when others check the commits to the repository can understand what or why you did those changes.\\
+Now that we know which command to use, let's use it but don't forget to add a meaningful message, so that when others check the commits to the repository can understand what or why you did those changes.\\
 
 \subsection{Checking the log}
 
-Lets check the log to see the changes we have made to our local repository. To check these changes, we will check the local repository log and to do that we must run the following command:
+Let's check the log to see the changes we have made to our local repository. To check these changes, we will check the local repository log and to do that we must run the following command:
 
 \begin{lstlisting}
 	git log
@@ -211,7 +211,7 @@ After running this command, we will get an output similar to this:
 
 What can we check in the log? Well, we can see the commits that were made to the repository, when were they made and the message that the author of the commit wrote for that change.\\
 
-Now lets say you want to check what a specific commit made. You can verify this with this command:
+Now let's say you want to check what a specific commit made. You can verify this with this command:
 
 \begin{lstlisting}
 	git show <commit hash>
@@ -246,9 +246,6 @@ and then push using the remote name
 This is not bad and the message is clear: before publishing something from our local repository to a remote, we must set a remote! To do that we must have access to a Git repository service like \href{https://github.com}{GitHub}, \href{https://bitbucket.org}{BitBucket} or \href{http://code.ua.pt}{Code.UA}. \\
 
 Bellow, we show how to create a remote Git repository, with two use-cases: \textbf{GitHub} and \textbf{Code.UA}. The command \textbf{git push} should work normally after you complete this step.
-
-% TODO: Updating the remote server
-% Code.UA vs GitHub
 
 \subsubsection{Using Code.UA}
 
@@ -316,13 +313,13 @@ And it's done!
 
 GIT supports branches. What are branches? Branches are places where code diverges, meaning that the code will have the same base, but it will differ from branch to branch. Every GIT repository has main branch, that is called master and if you don't branch all your commits will go there.\\
 
-Now lets say you need to add a new feature. You don't want to break the master branch while you develop your new feature, so you will create a new branch so that you can work on code. To create the new branch, you will use the following command:
+Now let's say you need to add a new feature. You don't want to break the master branch while you develop your new feature, so you will create a new branch so that you can work on code. To create the new branch, you will use the following command:
 
 \begin{lstlisting}
 	git branch <branch name>
 \end{lstlisting}
 
-Lets create a new branch for our new feature called \textbf{feature-1}. After creating your new branch to work on you should check in which branch are you in, by running the following command \textbf{git branch}. And you will get the following result:
+Let's create a new branch for our new feature called \textbf{feature-1}. After creating your new branch to work on you should check in which branch are you in, by running the following command \textbf{git branch}. And you will get the following result:
 
 \begin{lstlisting}
 	  feature-1
@@ -335,7 +332,7 @@ Lets create a new branch for our new feature called \textbf{feature-1}. After cr
 \label{fig1}
 \end{figure}
 
-The star (*) before the name of the branch will tell you which in which branch you are and right now you should be in the master branch. But we want to develop our new feature, so we will need to change to the feature-1 branch. To do that we need to run the following command:
+The star (*) before the name of the branch will tell you in which branch you are and right now you should be in the master branch. But we want to develop our new feature, so we will need to change to the feature-1 branch. To do that we need to run the following command:
 
 \begin{lstlisting}
 	git checkout <branch name>
@@ -349,7 +346,7 @@ After we run this command you should check in which branch are you now and the r
 \end{lstlisting}
 
 Now we can develop our feature in this branch, without changing the master branch.\\
-Lets add a new file called feat\_1 and lets add and commit our new feature to the repository. Lets do this by running the following commands:
+Let's add a new file called feat\_1 and let's add and commit our new feature to the repository. Let's do this by running the following commands:
 
 \begin{lstlisting}
 	echo "feature 1 developed" >> file_1
@@ -380,7 +377,7 @@ And the output should be similar to this:
     	Initial commit
 \end{lstlisting}
 
-So now our code in feature-1 branch as a new feature that the master branch doesn't have. Lets just check our master branch to check that the change that we made didn't made it to the master branch, by running the following commands:
+So now our code in feature-1 branch as a new feature that the master branch doesn't have. Let's just check our master branch to check that the change that we made didn't made it to the master branch, by running the following commands:
 
 \begin{lstlisting}
 	git checkout master
@@ -451,7 +448,7 @@ After doing all this, the last thing that we need to do to merge both branches i
 	git merge bug_fix_1
 \end{lstlisting}
 
-Since we merged the two branches, both of them should be equal. To check that all the commits have made into master branch lets check the log, by running \textbf{git log}:
+Since we merged the two branches, both of them should be equal. To check that all the commits have made into master branch let's check the log, by running \textbf{git log}:
 
 \begin{lstlisting}
 	commit 3b820eeb454915a81373a569a8a4baf32a6725b1
@@ -479,7 +476,7 @@ Since we merged the two branches, both of them should be equal. To check that al
 \label{fig1}
 \end{figure}
 
-And lets check if the last commit is the same in both branches, by running \textbf{git branch -v}:
+And let's check if the last commit is the same in both branches, by running \textbf{git branch -v}:
 
 \begin{lstlisting}
 	  bug_fix_1 3b820ee Bug fix 1 solved
@@ -487,13 +484,13 @@ And lets check if the last commit is the same in both branches, by running \text
 	* master    3b820ee Bug fix 1 solved
 \end{lstlisting}
 
-Now that the bug\_fix\_1 branch has been merged into the master branch, we don't need that branch anymore, so lets delete it. To do this run:
+Now that the bug\_fix\_1 branch has been merged into the master branch, we don't need that branch anymore, so let's delete it. To do this run:
 
 \begin{lstlisting}
 	git branch -d bug_fix_1
 \end{lstlisting}
 
-And now lets check that we did in fact deleted the bug\_fix\_1 branch and that we didn't lose any information by running again \textbf{git branch -v}:
+And now let's check that we did in fact deleted the bug\_fix\_1 branch and that we didn't lose any information by running again \textbf{git branch -v}:
 
 \begin{lstlisting}
 	  feature-1 4375663 Feature 1 complete
@@ -534,21 +531,21 @@ Since we changed the same file in both branches, we need to fix this. Open the f
 	>>>>>>> master
 \end{lstlisting}
 
-Now we must decide what to keep, so lets fix the file, by keeping what we want to keep and removing what is not needed, including \textbf{\textless\textless\textless\textless\textless\textless\textless\textless HEAD} and \textbf{\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater master}. By the end of this conflict resolution, we should have a file equal to this:
+Now we must decide what to keep, so let's fix the file, by keeping what we want to keep and removing what is not needed, including \textbf{\textless\textless\textless\textless\textless\textless\textless\textless HEAD} and \textbf{\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater master}. By the end of this conflict resolution, we should have a file equal to this:
 
 \begin{lstlisting}
 	this is a bug fix
 	feature 1 developed
 \end{lstlisting}
 
-Now lets add the file and commit the rebase fix:
+Now let's add the file and commit the rebase fix:
 
 \begin{lstlisting}
 	git add file_1
 	git commit -m "Fixing rebase errors"
 \end{lstlisting}
 
-Now lets check the history of this branch by running \textbf{git log}.
+Now let's check the history of this branch by running \textbf{git log}.
 
 \begin{lstlisting}
 	commit c7cbf0e80fb8564f5cfa5a9f7d20f2002fb7847b
@@ -591,13 +588,13 @@ Now lets check the history of this branch by running \textbf{git log}.
 
 \subsection{Reset}
 
-Lets say that we did an error when we fixed the rebase error, how can we undo it? Simple we can use \textbf{git reset HEAD~N}, where \textbf{N} represents the number of commits that we want to reset to. Since we only want to undo the last commit we will use N = 1.
+Let's say that we did an error when we fixed the rebase error, how can we undo it? Simple we can use \textbf{git reset HEAD~N}, where \textbf{N} represents the number of commits that we want to reset to. Since we only want to undo the last commit we will use N = 1.
 
 \begin{lstlisting}
 	git reset HEAD~1
 \end{lstlisting}
 
-To check that the \textbf{git reset} was successful, lets run \textbf{git log}.
+To check that the \textbf{git reset} was successful, let's run \textbf{git log}.
 
 \begin{lstlisting}
 	commit 76a5e9efc2c59ff487fae6636c9eeb80720ab541
