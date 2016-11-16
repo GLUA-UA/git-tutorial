@@ -162,7 +162,7 @@ If you don't want to track all files, you can add them individually like this:
 	git add <file>
 \end{lstlisting}
 
-In this case, we want to add all files, so we will use \textbf{git add .} and know let's check the state of the local repository with \textbf{git status}.
+In this case, we want to add all files, so we will use \textbf{git add .} and now let's check the state of the local repository with \textbf{git status}.
 
 \begin{lstlisting}
 	On branch master
@@ -183,7 +183,7 @@ Now that we have added some new files and started tracking them in our repositor
 	git commit -m "A message relevant to the changes made in this commit"
 \end{lstlisting}
 
-Now that we know which command to use, let's use it but don't forget to add a meaningful message, so that when others check the commits to the repository can understand what or why you did those changes.\\
+Now that we know which command to use, let's use it but don't forget to add a meaningful message, so that when others check the commits in the repository, can understand what or why you did those changes.\\
 
 \subsection{Checking the log}
 
@@ -223,7 +223,7 @@ Where the \textbf{\textless commit hash\textgreater} is the number that appears 
 
 When we are using Git in our computers, the commands we learnt (git init, git add, git commit) have a direct effect on our local repository. But Git was created for teams, so we need a central point for sharing and store code. We call it the remote.\\
 
-After issuing the previous commands, if you want to make those modifications and code available, you must use the commmand \textbf{git push}.
+After issuing the previous commands, if you want to make those modifications and code available, you must use the command \textbf{git push}.
 
 \begin{lstlisting}
 git push
@@ -249,7 +249,7 @@ Bellow, we show how to create a remote Git repository, with two use-cases: \text
 
 \subsubsection{Using Code.UA}
 
-For University of Aveiro course's projects, it's recommend to use Code.UA rather than third-party services like GitHub or Bitbucket.\\
+For University of Aveiro course's projects, it's recommend to use Code.UA rather than third-party services, like GitHub or Bitbucket.\\
 
 To create a repository in Code.UA:
 
@@ -293,10 +293,10 @@ To use GitHub:
 \item After registering and login in, push the \textbf{New repository} button
 \item Choose a good name for the repository
 \item Make the project as \textbf{public} or \textbf{private}
-\item Push the \textbf{Create respository} button
+\item Push the \textbf{Create repository} button
 \end{enumerate}
 
-After creating a new repo, GitHub provides a set of instructions for creating a new repository on the command line, push an existing repository and more.\\
+After creating a new repository, GitHub provides a set of instructions for creating a new repository on the command line, push an existing repository and more.\\
 
 The repository URL it's available under the section \textbf{Quick Setup}.\\
 
@@ -311,7 +311,7 @@ And it's done!
 
 \subsection{Creating a branch}
 
-GIT supports branches. What are branches? Branches are places where code diverges, meaning that the code will have the same base, but it will differ from branch to branch. Every GIT repository has main branch, that is called master and if you don't branch all your commits will go there.\\
+GIT supports branches. What are branches? Branches are places where code diverges, meaning that the code will have the same base, but it will differ from branch to branch. Every GIT repository has main branch, that is called master and if you don't branch, all your commits will go there.\\
 
 Now let's say you need to add a new feature. You don't want to break the master branch while you develop your new feature, so you will create a new branch so that you can work on code. To create the new branch, you will use the following command:
 
